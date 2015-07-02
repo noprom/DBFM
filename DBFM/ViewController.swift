@@ -48,30 +48,46 @@ class ViewController: UIViewController ,UITableViewDataSource, UITableViewDelega
     }
     //设置tableview的数据行数
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
+        return tableData.count
     }
     //配置tableView的单元格 cell
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tv.dequeueReusableCellWithIdentifier("douban") as! UITableViewCell
-        //设置cell的标题
-        cell.textLabel?.text = "标题：\(indexPath.row)"
-        cell.detailTextLabel?.text = "子标题：\(indexPath.row)"
+        // 获取每一行的数据
+        let rowData:JSON = tableData[indexPath.row]
+        println("rowData = \(rowData)")
+        // cell的标题
+        
+        cell.textLabel?.text = rowData["title"].string
+        cell.detailTextLabel?.text = rowData["artist"].string
         //设置缩略图
         cell.imageView?.image = UIImage(named: "thumb")
+        
+        // 封面的网址
+        let url = rowData["picture"].string
+        Alamofire.manager.request(Method.GET, url!).response { (_, _, data, error) -> Void in
+            // 填充给UIImage
+            let img = UIImage(data: data! as! NSData)
+            // 设置封面
+            cell.imageView?.image = img
+        }
+        
         return cell
     }
     
     // 接收到数据后的回调方法
     func didReceiveResults(result: AnyObject) {
-        let json = JSON[result]
+        let json = JSON(result)
         // 判断是否是频道的数据
         if let channels = json["channels"].array{
             self.channelData = channels
-        }else if let song = json["son"].array{
+        }else if let song = json["song"].array{
             self.tableData = song
+            // 刷新tableview的数据
+            self.tv.reloadData()
         }
-        
-        
+        println("channelData = \(channelData)")
+         println("tableData = \(tableData)")
     }
     
     override func didReceiveMemoryWarning() {
