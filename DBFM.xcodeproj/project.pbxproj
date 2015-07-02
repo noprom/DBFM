@@ -17,6 +17,7 @@
 		80F8DA1B1B455C6900197D8A /* ChannelController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80F8DA1A1B455C6900197D8A /* ChannelController.swift */; };
 		80F8DA1E1B45642200197D8A /* Alamofire.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80F8DA1C1B45642200197D8A /* Alamofire.swift */; };
 		80F8DA1F1B45642200197D8A /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80F8DA1D1B45642200197D8A /* SwiftyJSON.swift */; };
+		80F8DA211B45661C00197D8A /* HttpController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80F8DA201B45661C00197D8A /* HttpController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +45,7 @@
 		80F8DA1A1B455C6900197D8A /* ChannelController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChannelController.swift; sourceTree = "<group>"; };
 		80F8DA1C1B45642200197D8A /* Alamofire.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Alamofire.swift; sourceTree = "<group>"; };
 		80F8DA1D1B45642200197D8A /* SwiftyJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyJSON.swift; sourceTree = "<group>"; };
+		80F8DA201B45661C00197D8A /* HttpController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HttpController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,6 +97,7 @@
 				80F8D9F61B453A8900197D8A /* Supporting Files */,
 				80F8DA181B45499E00197D8A /* EkoImage.swift */,
 				80F8DA1A1B455C6900197D8A /* ChannelController.swift */,
+				80F8DA201B45661C00197D8A /* HttpController.swift */,
 			);
 			path = DBFM;
 			sourceTree = "<group>";
@@ -227,6 +230,7 @@
 				80F8DA191B45499E00197D8A /* EkoImage.swift in Sources */,
 				80F8DA1E1B45642200197D8A /* Alamofire.swift in Sources */,
 				80F8D9FB1B453A8900197D8A /* ViewController.swift in Sources */,
+				80F8DA211B45661C00197D8A /* HttpController.swift in Sources */,
 				80F8DA1F1B45642200197D8A /* SwiftyJSON.swift in Sources */,
 				80F8D9F91B453A8900197D8A /* AppDelegate.swift in Sources */,
 				80F8DA1B1B455C6900197D8A /* ChannelController.swift in Sources */,
