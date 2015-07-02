@@ -93,7 +93,7 @@
                                 <rect key="frame" x="0.0" y="293" width="320" height="275"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" textLabel="hT3-cu-pfX" detailTextLabel="nJK-BF-ume" style="IBUITableViewCellStyleSubtitle" id="nSR-t0-EkB">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="douban" textLabel="hT3-cu-pfX" detailTextLabel="nJK-BF-ume" style="IBUITableViewCellStyleSubtitle" id="nSR-t0-EkB">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="nSR-t0-EkB" id="YL6-7c-Uw5">
@@ -169,15 +169,16 @@
                     <connections>
                         <outlet property="bg" destination="69V-Sl-EfO" id="1oh-D8-6x0"/>
                         <outlet property="iv" destination="Sai-c1-wmP" id="TRR-8V-3hQ"/>
+                        <outlet property="tv" destination="fEX-sr-sXM" id="kIM-yl-MNt"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
         </scene>
-        <!--View Controller-->
+        <!--Channel Controller-->
         <scene sceneID="Ebu-oA-oAi">
             <objects>
-                <viewController id="nbT-b0-i3L" sceneMemberID="viewController">
+                <viewController id="nbT-b0-i3L" customClass="ChannelController" customModule="DBFM" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Sgj-NT-JlF"/>
                         <viewControllerLayoutGuide type="bottom" id="zWU-9g-K3y"/>
@@ -195,6 +196,19 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="QgY-J5-bhD">
                                 <rect key="frame" x="0.0" y="55" width="320" height="513"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="channel" id="vVG-H2-zJ9">
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="vVG-H2-zJ9" id="efE-wD-bGL">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="nbT-b0-i3L" id="7Ko-RT-SnO"/>
+                                    <outlet property="delegate" destination="nbT-b0-i3L" id="hPe-HC-7Kd"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -209,6 +223,9 @@
                         </constraints>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <connections>
+                        <outlet property="tv" destination="QgY-J5-bhD" id="raY-az-NJJ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cyX-kZ-L4h" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
