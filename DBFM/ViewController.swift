@@ -9,7 +9,7 @@
 
 import UIKit
 
-class ViewController: UIViewController ,UITableViewDataSource, UITableViewDelegate{
+class ViewController: UIViewController ,UITableViewDataSource, UITableViewDelegate,HttpProtocol{
 
     //EkoImage组件，歌曲封面
     @IBOutlet weak var iv: EkoImage!
@@ -17,7 +17,11 @@ class ViewController: UIViewController ,UITableViewDataSource, UITableViewDelega
     @IBOutlet weak var tv: UITableView!
     //背景
     @IBOutlet weak var bg: UIImageView!
-       
+    
+    // 网络操作类的实例
+    var eHttp:HttpController = HttpController()
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         iv.onRotation()
@@ -30,6 +34,13 @@ class ViewController: UIViewController ,UITableViewDataSource, UITableViewDelega
         //设置tbaleView的数据源和代理
         tv.dataSource = self
         tv.delegate = self
+        
+        // 为网络操作类设置代理
+        eHttp.delegate = self
+        // 获取频道的数据
+        eHttp.onSearch("http://www.douban.com/j/app/radio/channels")
+        // 获取频道为0的歌曲的数据
+        eHttp.onSearch("http://douban.fm/j/mine/playlist?type=n&channel=0&from=mainsite")
     }
     //设置tableview的数据行数
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -44,6 +55,11 @@ class ViewController: UIViewController ,UITableViewDataSource, UITableViewDelega
         //设置缩略图
         cell.imageView?.image = UIImage(named: "thumb")
         return cell
+    }
+    
+    // 接收到数据后的回调方法
+    func didReceiveResults(result: AnyObject) {
+        println("\(result)")
     }
     
     override func didReceiveMemoryWarning() {
