@@ -1,3 +1,4 @@
+
 //
 //  ViewController.swift
 //  DBFM
@@ -12,12 +13,21 @@ class ViewController: UIViewController {
 
     // 歌曲封面
     @IBOutlet weak var iv: EkoImage!
+    //背景
+    @IBOutlet weak var bg: UIImageView!
+
     override func viewDidLoad() {
         super.viewDidLoad()
         // 旋转
         iv.onRotation()
         
-        // Do any additional setup after loading the view, typically from a nib.
+        //设置背景模糊
+        let blurEffect = UIBlurEffect(style: UIBlurEffectStyle.Light)
+        let blurView = UIVisualEffectView(effect: blurEffect)
+        blurView.frame.size = CGSize(width: view.frame.width, height: view.frame.height)
+        bg.addSubview(blurView)
+
+     
     }
 
     override func didReceiveMemoryWarning() {
