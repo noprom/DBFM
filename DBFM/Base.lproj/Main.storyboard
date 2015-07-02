@@ -40,20 +40,91 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView userInteractionEnabled="NO" alpha="0.29999999999999999" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="progressBg2" translatesAutoresizingMaskIntoConstraints="NO" id="f3w-zw-fcF">
+                                <rect key="frame" x="0.0" y="248" width="322" height="40"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" alpha="0.29999999999999999" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="progressBg" translatesAutoresizingMaskIntoConstraints="NO" id="c1X-Kq-UkB">
+                                <rect key="frame" x="0.0" y="248" width="10" height="40"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mjg-e3-f8Z" userLabel="Replay">
+                                <rect key="frame" x="9" y="256" width="25" height="25"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="25" id="nVu-Ea-DyP"/>
+                                    <constraint firstAttribute="height" constant="25" id="so4-tG-ga3"/>
+                                </constraints>
+                                <state key="normal" image="order1">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Ic-2n-rgg" userLabel="Pre">
+                                <rect key="frame" x="78" y="256" width="25" height="25"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="25" id="LvT-Pg-hPj"/>
+                                    <constraint firstAttribute="height" constant="25" id="Q7e-wq-MXk"/>
+                                </constraints>
+                                <state key="normal" image="pre">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pRz-Ru-S8r" userLabel="Play">
+                                <rect key="frame" x="145" y="252" width="34" height="34"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="34" id="2yr-ph-8lB"/>
+                                    <constraint firstAttribute="height" constant="34" id="ewq-gm-QWK"/>
+                                </constraints>
+                                <state key="normal" image="pause">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DF3-LF-np5" userLabel="Next">
+                                <rect key="frame" x="225" y="256" width="25" height="25"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="25" id="Jm0-er-4Xy"/>
+                                    <constraint firstAttribute="width" constant="25" id="n1g-dw-8fL"/>
+                                </constraints>
+                                <state key="normal" image="next">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fFV-LI-ABM" userLabel="Channel">
+                                <rect key="frame" x="280" y="256" width="25" height="25"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="25" id="ZmH-tz-kX1"/>
+                                    <constraint firstAttribute="height" constant="25" id="zEZ-kT-OZS"/>
+                                </constraints>
+                                <state key="normal" image="channel">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstAttribute="centerX" secondItem="fFV-LI-ABM" secondAttribute="centerX" constant="-132.5" id="1Iu-Yn-nMP"/>
+                            <constraint firstAttribute="centerX" secondItem="4Ic-2n-rgg" secondAttribute="centerX" constant="69.5" id="1y0-ki-KuJ"/>
                             <constraint firstAttribute="trailingMargin" secondItem="aWn-75-j8e" secondAttribute="trailing" constant="-16" id="28n-By-jAK"/>
+                            <constraint firstItem="f3w-zw-fcF" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="228" id="Gnq-Pn-jD1"/>
                             <constraint firstItem="YLb-Vq-5iw" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="10" id="IaV-15-qoX"/>
                             <constraint firstItem="vZH-mz-Yp6" firstAttribute="centerX" secondItem="YLb-Vq-5iw" secondAttribute="centerX" id="LXi-vg-3Fb"/>
                             <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="aWn-75-j8e" secondAttribute="bottom" id="OBH-kC-lDS"/>
+                            <constraint firstItem="f3w-zw-fcF" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="-16" id="PWf-pf-p0K"/>
                             <constraint firstAttribute="centerY" secondItem="YLb-Vq-5iw" secondAttribute="centerY" constant="154" id="PZT-Mz-Nqh"/>
+                            <constraint firstItem="fFV-LI-ABM" firstAttribute="centerY" secondItem="DF3-LF-np5" secondAttribute="centerY" id="SUO-D6-aEx"/>
                             <constraint firstItem="aWn-75-j8e" firstAttribute="top" secondItem="kh9-bI-dsS" secondAttribute="topMargin" id="VZZ-bg-mGY"/>
+                            <constraint firstItem="DF3-LF-np5" firstAttribute="centerY" secondItem="pRz-Ru-S8r" secondAttribute="centerY" constant="-0.5" id="YVF-zS-5aJ"/>
+                            <constraint firstAttribute="centerX" secondItem="pRz-Ru-S8r" secondAttribute="centerX" constant="-2" id="ZH4-qg-35Z"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="f3w-zw-fcF" secondAttribute="trailing" constant="-18" id="ZKG-nf-2cl"/>
+                            <constraint firstAttribute="centerX" secondItem="Mjg-e3-f8Z" secondAttribute="centerX" constant="138.5" id="hXe-r5-Y2w"/>
                             <constraint firstItem="Xqv-pc-2Yx" firstAttribute="centerX" secondItem="YLb-Vq-5iw" secondAttribute="centerX" id="jlR-EE-39L"/>
                             <constraint firstItem="vZH-mz-Yp6" firstAttribute="centerY" secondItem="YLb-Vq-5iw" secondAttribute="centerY" constant="-0.5" id="nNV-2c-YJq"/>
+                            <constraint firstItem="fFV-LI-ABM" firstAttribute="centerY" secondItem="DF3-LF-np5" secondAttribute="centerY" id="nbA-So-WbB"/>
                             <constraint firstItem="aWn-75-j8e" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="-16" id="ouh-pU-4hl"/>
                             <constraint firstAttribute="centerX" secondItem="YLb-Vq-5iw" secondAttribute="centerX" id="qcO-PS-57U"/>
                             <constraint firstItem="Xqv-pc-2Yx" firstAttribute="centerY" secondItem="YLb-Vq-5iw" secondAttribute="centerY" id="rNJ-ye-pnQ"/>
+                            <constraint firstItem="f3w-zw-fcF" firstAttribute="centerY" secondItem="Mjg-e3-f8Z" secondAttribute="centerY" constant="-0.5" id="rtn-dD-hmN"/>
+                            <constraint firstAttribute="centerX" secondItem="DF3-LF-np5" secondAttribute="centerX" constant="-77.5" id="uMU-st-Nv4"/>
+                            <constraint firstItem="pRz-Ru-S8r" firstAttribute="centerY" secondItem="4Ic-2n-rgg" secondAttribute="centerY" constant="0.5" id="ykv-eE-91t"/>
+                            <constraint firstItem="4Ic-2n-rgg" firstAttribute="centerY" secondItem="Mjg-e3-f8Z" secondAttribute="centerY" id="ysP-ON-wfP"/>
+                            <constraint firstItem="c1X-Kq-UkB" firstAttribute="centerY" secondItem="f3w-zw-fcF" secondAttribute="centerY" id="z1w-pw-L8m"/>
                         </constraints>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
@@ -63,7 +134,14 @@
         </scene>
     </scenes>
     <resources>
+        <image name="channel" width="40" height="40"/>
         <image name="logo" width="200" height="200"/>
+        <image name="next" width="40" height="40"/>
+        <image name="order1" width="40" height="40"/>
+        <image name="pause" width="40" height="40"/>
+        <image name="pre" width="40" height="40"/>
+        <image name="progressBg" width="15" height="40"/>
+        <image name="progressBg2" width="15" height="40"/>
         <image name="thumb" width="44" height="44"/>
         <image name="timeBg" width="70" height="70"/>
     </resources>
