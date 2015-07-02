@@ -15,6 +15,8 @@
 		80F8DA0F1B453A8900197D8A /* DBFMTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80F8DA0E1B453A8900197D8A /* DBFMTests.swift */; };
 		80F8DA191B45499E00197D8A /* EkoImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80F8DA181B45499E00197D8A /* EkoImage.swift */; };
 		80F8DA1B1B455C6900197D8A /* ChannelController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80F8DA1A1B455C6900197D8A /* ChannelController.swift */; };
+		80F8DA1E1B45642200197D8A /* Alamofire.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80F8DA1C1B45642200197D8A /* Alamofire.swift */; };
+		80F8DA1F1B45642200197D8A /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80F8DA1D1B45642200197D8A /* SwiftyJSON.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +42,8 @@
 		80F8DA0E1B453A8900197D8A /* DBFMTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBFMTests.swift; sourceTree = "<group>"; };
 		80F8DA181B45499E00197D8A /* EkoImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EkoImage.swift; sourceTree = "<group>"; };
 		80F8DA1A1B455C6900197D8A /* ChannelController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChannelController.swift; sourceTree = "<group>"; };
+		80F8DA1C1B45642200197D8A /* Alamofire.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Alamofire.swift; sourceTree = "<group>"; };
+		80F8DA1D1B45642200197D8A /* SwiftyJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyJSON.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +85,8 @@
 		80F8D9F51B453A8900197D8A /* DBFM */ = {
 			isa = PBXGroup;
 			children = (
+				80F8DA1C1B45642200197D8A /* Alamofire.swift */,
+				80F8DA1D1B45642200197D8A /* SwiftyJSON.swift */,
 				80F8D9F81B453A8900197D8A /* AppDelegate.swift */,
 				80F8D9FA1B453A8900197D8A /* ViewController.swift */,
 				80F8D9FC1B453A8900197D8A /* Main.storyboard */,
@@ -219,7 +225,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				80F8DA191B45499E00197D8A /* EkoImage.swift in Sources */,
+				80F8DA1E1B45642200197D8A /* Alamofire.swift in Sources */,
 				80F8D9FB1B453A8900197D8A /* ViewController.swift in Sources */,
+				80F8DA1F1B45642200197D8A /* SwiftyJSON.swift in Sources */,
 				80F8D9F91B453A8900197D8A /* AppDelegate.swift in Sources */,
 				80F8DA1B1B455C6900197D8A /* ChannelController.swift in Sources */,
 			);
