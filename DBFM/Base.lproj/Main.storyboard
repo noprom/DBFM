@@ -86,8 +86,8 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fFV-LI-ABM" userLabel="Channel">
-                                <rect key="frame" x="280" y="256" width="25" height="25"/>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fFV-LI-ABM" userLabel="Channel">
+                                <rect key="frame" x="280" y="256" width="24" height="25"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="25" id="ZmH-tz-kX1"/>
                                     <constraint firstAttribute="height" constant="25" id="zEZ-kT-OZS"/>
@@ -95,6 +95,9 @@
                                 <state key="normal" image="channel">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <segue destination="jBW-q9-nWF" kind="presentation" modalPresentationStyle="overCurrentContext" id="re9-X8-8mq"/>
+                                </connections>
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="NAq-S9-mLX">
                                 <rect key="frame" x="0.0" y="294" width="320" height="274"/>
