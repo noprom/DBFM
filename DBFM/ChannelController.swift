@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ChannelController: UIViewController {
+class ChannelController: UIViewController ,UITableViewDelegate{
     
     // 频道列表
     @IBOutlet weak var tv: UITableView!
@@ -36,6 +36,18 @@ class ChannelController: UIViewController {
         //设置cell的标题
         cell.textLabel?.text = rowData["name"].string
         return cell
+    }
+    
+    // 选中了某个item
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        // 获取行数据
+        let rowData:JSON = self.channelData[indexPath.row] as JSON
+        // 获取选中的行的频道id
+        let channelId:String = rowData["channel_id"].stringValue
+        // 将频道id返回给主界面
+        delegate?.onChangeChannel(channelId)
+        // 关闭当前界面
+        self.dismissViewControllerAnimated(true, completion: nil)
     }
     
     override func didReceiveMemoryWarning() {
