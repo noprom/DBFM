@@ -21,6 +21,10 @@ class ViewController: UIViewController ,UITableViewDataSource, UITableViewDelega
     // 网络操作类的实例
     var eHttp:HttpController = HttpController()
     
+    // 定义一个变量来接收频道歌曲的数据
+    var tableData:[JSON] = []
+    // 定义一个变量来接收频道的数据
+    var channelData:[JSON] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -59,7 +63,15 @@ class ViewController: UIViewController ,UITableViewDataSource, UITableViewDelega
     
     // 接收到数据后的回调方法
     func didReceiveResults(result: AnyObject) {
-        println("\(result)")
+        let json = JSON[result]
+        // 判断是否是频道的数据
+        if let channels = json["channels"].array{
+            self.channelData = channels
+        }else if let song = json["son"].array{
+            self.tableData = song
+        }
+        
+        
     }
     
     override func didReceiveMemoryWarning() {
