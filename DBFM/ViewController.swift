@@ -10,8 +10,13 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    // 歌曲封面
+    @IBOutlet weak var iv: EkoImage!
     override func viewDidLoad() {
         super.viewDidLoad()
+        // 旋转
+        iv.onRotation()
+        
         // Do any additional setup after loading the view, typically from a nib.
     }
 

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>FB892FD1-474B-4862-8C24-1F057EBA9796</string>
+	<key>IDESourceControlProjectName</key>
+	<string>project</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>00A01116DCED7D8CB189DDBF06A2C57847DEBACC</key>
+		<string>github.com:noprom/DBFM.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>DBFM.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>00A01116DCED7D8CB189DDBF06A2C57847DEBACC</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>github.com:noprom/DBFM.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>00A01116DCED7D8CB189DDBF06A2C57847DEBACC</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>00A01116DCED7D8CB189DDBF06A2C57847DEBACC</string>
+			<key>IDESourceControlWCCName</key>
+			<string>DBFM</string>
+		</dict>
+	</array>
+</dict>
+</plist>
