@@ -14,14 +14,12 @@ class ChannelController: UIViewController {
     @IBOutlet weak var tv: UITableView!
     
     // 申明代理
-    var detegate:ChannelController?
+    var delegate:ChannelProtocol?
     
     // 频道列表的数据
     var channelData:[JSON] = []
     override func viewDidLoad() {
         super.viewDidLoad()
-
-       
     }
 
     // 配置数据源的行数

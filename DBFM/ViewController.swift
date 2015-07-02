@@ -9,7 +9,7 @@
 
 import UIKit
 
-class ViewController: UIViewController ,UITableViewDataSource, UITableViewDelegate,HttpProtocol{
+class ViewController: UIViewController ,UITableViewDataSource, UITableViewDelegate,HttpProtocol,ChannelProtocol{
 
     //EkoImage组件，歌曲封面
     @IBOutlet weak var iv: EkoImage!
@@ -86,8 +86,23 @@ class ViewController: UIViewController ,UITableViewDataSource, UITableViewDelega
             // 刷新tableview的数据
             self.tv.reloadData()
         }
-        println("channelData = \(channelData)")
-         println("tableData = \(tableData)")
+    }
+    
+    // 改变频道时的操作
+    func onChangeChannel(channelId: String) {
+        // 拼凑频道对应歌曲的url
+        // http://douban.fm/j/mine/playlist?type=n&channel=0&from=mainsite
+        let url:String = "http://douban.fm/j/mine/playlist?type=n&channel=\(channelId)&from=mainsite"
+        eHttp.onSearch(url)
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        //获取跳转目标
+        var channelC:ChannelController = segue.destinationViewController as! ChannelController
+        //设置代理
+        channelC.delegate = self
+        //传输频道列表数据
+        channelC.channelData = self.channelData
     }
     
     override func didReceiveMemoryWarning() {
