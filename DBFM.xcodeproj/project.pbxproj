@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		80403E901B46B3A900005D3B /* EkoButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80403E8F1B46B3A900005D3B /* EkoButton.swift */; };
 		80F8D9F91B453A8900197D8A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80F8D9F81B453A8900197D8A /* AppDelegate.swift */; };
 		80F8D9FB1B453A8900197D8A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80F8D9FA1B453A8900197D8A /* ViewController.swift */; };
 		80F8D9FE1B453A8900197D8A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 80F8D9FC1B453A8900197D8A /* Main.storyboard */; };
@@ -31,6 +32,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		80403E8F1B46B3A900005D3B /* EkoButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EkoButton.swift; sourceTree = "<group>"; };
 		80F8D9F31B453A8900197D8A /* DBFM.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DBFM.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		80F8D9F71B453A8900197D8A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		80F8D9F81B453A8900197D8A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -98,6 +100,7 @@
 				80F8DA181B45499E00197D8A /* EkoImage.swift */,
 				80F8DA1A1B455C6900197D8A /* ChannelController.swift */,
 				80F8DA201B45661C00197D8A /* HttpController.swift */,
+				80403E8F1B46B3A900005D3B /* EkoButton.swift */,
 			);
 			path = DBFM;
 			sourceTree = "<group>";
@@ -232,6 +235,7 @@
 				80F8D9FB1B453A8900197D8A /* ViewController.swift in Sources */,
 				80F8DA211B45661C00197D8A /* HttpController.swift in Sources */,
 				80F8DA1F1B45642200197D8A /* SwiftyJSON.swift in Sources */,
+				80403E901B46B3A900005D3B /* EkoButton.swift in Sources */,
 				80F8D9F91B453A8900197D8A /* AppDelegate.swift in Sources */,
 				80F8DA1B1B455C6900197D8A /* ChannelController.swift in Sources */,
 			);
@@ -429,6 +433,7 @@
 				80F8DA141B453A8900197D8A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		80F8DA151B453A8900197D8A /* Build configuration list for PBXNativeTarget "DBFMTests" */ = {
 			isa = XCConfigurationList;
@@ -437,6 +442,7 @@
 				80F8DA171B453A8900197D8A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
