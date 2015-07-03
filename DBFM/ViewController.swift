@@ -8,6 +8,7 @@
 //
 
 import UIKit
+import MediaPlayer
 
 class ViewController: UIViewController,UITableViewDataSource,UITableViewDelegate,HttpProtocol,ChannelProtocol {
     //EkoImage组件，歌曲封面
@@ -28,6 +29,10 @@ class ViewController: UIViewController,UITableViewDataSource,UITableViewDelegate
     
     //定义一个图片缓存的字典
     var imageCache = Dictionary<String,UIImage>()
+    
+    // 媒体播放器的实例
+    var audioPlayer:MPMoviePlayerController = MPMoviePlayerController()
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -95,6 +100,11 @@ class ViewController: UIViewController,UITableViewDataSource,UITableViewDelegate
         let imgUrl = rowData["picture"].string
         //设置封面以及背景
         onSetImage(imgUrl!)
+        
+        // 获取播放的音乐的地址
+        var url:String = rowData["url"].string!
+        // 播放音乐
+        onSetAudio(url)
     }
     
     //设置歌曲的封面以及背景
@@ -140,6 +150,14 @@ class ViewController: UIViewController,UITableViewDataSource,UITableViewDelegate
             onSelectRow(0)
         }
     }
+    
+    // 播放音乐的方法
+    func onSetAudio(url:String){
+        self.audioPlayer.stop()
+        self.audioPlayer.contentURL = NSURL(string:url)
+        self.audioPlayer.play()
+    }
+    
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         //获取跳转目标
         var channelC:ChannelController = segue.destinationViewController as! ChannelController
