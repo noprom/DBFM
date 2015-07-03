@@ -52,10 +52,12 @@ class ViewController: UIViewController,UITableViewDataSource,UITableViewDelegate
         //让tableView背景透明
         tv.backgroundColor = UIColor.clearColor()
     }
+    
     //设置tableview的数据行数
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return tableData.count
     }
+    
     //配置tableView的单元格 cell
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tv.dequeueReusableCellWithIdentifier("douban") as! UITableViewCell
@@ -75,6 +77,7 @@ class ViewController: UIViewController,UITableViewDataSource,UITableViewDelegate
         
         return cell
     }
+    
     //点击了哪一首歌曲
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         onSelectRow(indexPath.row)
@@ -93,11 +96,13 @@ class ViewController: UIViewController,UITableViewDataSource,UITableViewDelegate
         //设置封面以及背景
         onSetImage(imgUrl!)
     }
+    
     //设置歌曲的封面以及背景
     func onSetImage(url:String){
         onGetCacheImage(url, imgView: self.iv)
         onGetCacheImage(url, imgView: self.bg)
     }
+    
     //图片缓存策略方法
     func onGetCacheImage(url:String,imgView:UIImageView){
         //通过图片地址去缓存中取图片
@@ -110,6 +115,7 @@ class ViewController: UIViewController,UITableViewDataSource,UITableViewDelegate
                 let img = UIImage(data: data! as! NSData)
                 imgView.image = img
                 
+                // 存储缓存
                 self.imageCache[url] = img
             })
         }else{
@@ -117,6 +123,8 @@ class ViewController: UIViewController,UITableViewDataSource,UITableViewDelegate
             imgView.image = image!
         }
     }
+    
+    // 接收到数据后的回调方法
     func didReceiveResults(results:AnyObject){
         //        println("获取到得数据：\(results)")
         let json = JSON(results)
