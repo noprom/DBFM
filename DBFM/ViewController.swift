@@ -33,6 +33,10 @@ class ViewController: UIViewController,UITableViewDataSource,UITableViewDelegate
     // 媒体播放器的实例
     var audioPlayer:MPMoviePlayerController = MPMoviePlayerController()
     
+    // 申明一个计时器
+    var timer:NSTimer?
+    
+    @IBOutlet weak var timePlayer: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -156,6 +160,39 @@ class ViewController: UIViewController,UITableViewDataSource,UITableViewDelegate
         self.audioPlayer.stop()
         self.audioPlayer.contentURL = NSURL(string:url)
         self.audioPlayer.play()
+        
+        // 先停掉计时器
+        timer?.invalidate()
+        // 将计时器归零
+        timePlayer.text = "00:00"
+        // 启动计时器
+        timer = NSTimer.scheduledTimerWithTimeInterval(0.4, target: self, selector: "onUpdate", userInfo: nil, repeats: true)
+    }
+    
+    // 更新方法
+    func onUpdate(){
+        // 00:00 获取党建的播放时间
+        let c = audioPlayer.currentPlaybackTime
+        if c > 0.0{
+            // 格式化时间为00:00这种格式
+            let all:Int = Int(c)// 总的时间
+            let m:Int   = all % 60// 秒
+            let f:Int   = Int(all / 60)// 分
+            var time:String = ""
+            if f < 10{
+                time = "0\(f):"
+            }else{
+                time = "\(f):"
+            }
+            if m < 10{
+                time += "0\(m)"
+            }else{
+                time += "\(m)"
+            }
+            // 更新文本标签
+            timePlayer.text = time
+        }
+        
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
