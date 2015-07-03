@@ -20,6 +20,7 @@ class ChannelController: UIViewController ,UITableViewDelegate{
     var channelData:[JSON] = []
     override func viewDidLoad() {
         super.viewDidLoad()
+        view.alpha = 0.8
     }
 
     // 配置数据源的行数

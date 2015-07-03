@@ -9,8 +9,7 @@
 
 import UIKit
 
-class ViewController: UIViewController ,UITableViewDataSource, UITableViewDelegate,HttpProtocol,ChannelProtocol{
-
+class ViewController: UIViewController,UITableViewDataSource,UITableViewDelegate,HttpProtocol,ChannelProtocol {
     //EkoImage组件，歌曲封面
     @IBOutlet weak var iv: EkoImage!
     //歌曲列表
@@ -18,13 +17,17 @@ class ViewController: UIViewController ,UITableViewDataSource, UITableViewDelega
     //背景
     @IBOutlet weak var bg: UIImageView!
     
-    // 网络操作类的实例
+    //网络操作类的实例
     var eHttp:HttpController = HttpController()
     
-    // 定义一个变量来接收频道歌曲的数据
+    //定义一个变量，接收频道的歌曲数据
     var tableData:[JSON] = []
-    // 定义一个变量来接收频道的数据
+    
+    //定义一个变量，接收频道的数据
     var channelData:[JSON] = []
+    
+    //定义一个图片缓存的字典
+    var imageCache = Dictionary<String,UIImage>()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,12 +42,15 @@ class ViewController: UIViewController ,UITableViewDataSource, UITableViewDelega
         tv.dataSource = self
         tv.delegate = self
         
-        // 为网络操作类设置代理
+        //为网络操作类设置代理
         eHttp.delegate = self
-        // 获取频道的数据
+        //获取频道数据
         eHttp.onSearch("http://www.douban.com/j/app/radio/channels")
-        // 获取频道为0的歌曲的数据
+        //获取频道为0歌曲数据
         eHttp.onSearch("http://douban.fm/j/mine/playlist?type=n&channel=0&from=mainsite")
+        
+        //让tableView背景透明
+        tv.backgroundColor = UIColor.clearColor()
     }
     //设置tableview的数据行数
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -53,49 +59,79 @@ class ViewController: UIViewController ,UITableViewDataSource, UITableViewDelega
     //配置tableView的单元格 cell
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tv.dequeueReusableCellWithIdentifier("douban") as! UITableViewCell
-        // 获取每一行的数据
+        //让cell背景透明
+        cell.backgroundColor = UIColor.clearColor()
+        //获取cell的数据
         let rowData:JSON = tableData[indexPath.row]
-        println("rowData = \(rowData)")
-        // cell的标题
-        
+        //设置cell的标题
         cell.textLabel?.text = rowData["title"].string
         cell.detailTextLabel?.text = rowData["artist"].string
         //设置缩略图
         cell.imageView?.image = UIImage(named: "thumb")
-        
-        // 封面的网址
+        //封面的网址
         let url = rowData["picture"].string
-        Alamofire.manager.request(Method.GET, url!).response { (_, _, data, error) -> Void in
-            // 填充给UIImage
-            let img = UIImage(data: data! as! NSData)
-            // 设置封面
-            cell.imageView?.image = img
-        }
+        
+        onGetCacheImage(url!, imgView: cell.imageView!)
         
         return cell
     }
+    //点击了哪一首歌曲
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        onSelectRow(indexPath.row)
+    }
     
-    // 接收到数据后的回调方法
-    func didReceiveResults(result: AnyObject) {
-        let json = JSON(result)
-        // 判断是否是频道的数据
-        if let channels = json["channels"].array{
-            self.channelData = channels
-        }else if let song = json["song"].array{
-            self.tableData = song
-            // 刷新tableview的数据
-            self.tv.reloadData()
+    //选中了哪一行
+    func onSelectRow(index:Int){
+        //构建一个indexPath
+        let indexPath = NSIndexPath(forRow: index, inSection: 0)
+        //选中的效果
+        tv.selectRowAtIndexPath(indexPath!, animated: false, scrollPosition: UITableViewScrollPosition.Top)
+        //获取行数据
+        var rowData:JSON = self.tableData[index] as JSON
+        //获取该行图片的地址
+        let imgUrl = rowData["picture"].string
+        //设置封面以及背景
+        onSetImage(imgUrl!)
+    }
+    //设置歌曲的封面以及背景
+    func onSetImage(url:String){
+        onGetCacheImage(url, imgView: self.iv)
+        onGetCacheImage(url, imgView: self.bg)
+    }
+    //图片缓存策略方法
+    func onGetCacheImage(url:String,imgView:UIImageView){
+        //通过图片地址去缓存中取图片
+        let image = self.imageCache[url] as UIImage?
+        
+        if image == nil {
+            //如果缓存中没有这张图片，就通过网络获取
+            Alamofire.manager.request(Method.GET, url).response({ (_, _, data, error) -> Void in
+                //将获取的图像数据赋予imgView
+                let img = UIImage(data: data! as! NSData)
+                imgView.image = img
+                
+                self.imageCache[url] = img
+            })
+        }else{
+            //如果缓存中有，就直接用
+            imgView.image = image!
         }
     }
-    
-    // 改变频道时的操作
-    func onChangeChannel(channelId: String) {
-        // 拼凑频道对应歌曲的url
-        // http://douban.fm/j/mine/playlist?type=n&channel=0&from=mainsite
-        let url:String = "http://douban.fm/j/mine/playlist?type=n&channel=\(channelId)&from=mainsite"
-        eHttp.onSearch(url)
+    func didReceiveResults(results:AnyObject){
+        //        println("获取到得数据：\(results)")
+        let json = JSON(results)
+        
+        //判断是否是频道数据
+        if let channels = json["channels"].array {
+            self.channelData = channels
+        }else if let song = json["song"].array {
+            self.tableData = song
+            //刷新tv的数据
+            self.tv.reloadData()
+            //设置第一首歌的图片以及背景
+            onSelectRow(0)
+        }
     }
-    
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         //获取跳转目标
         var channelC:ChannelController = segue.destinationViewController as! ChannelController
@@ -105,11 +141,20 @@ class ViewController: UIViewController ,UITableViewDataSource, UITableViewDelega
         channelC.channelData = self.channelData
     }
     
+    //频道列表协议的回调方法
+    func onChangeChannel(channel_id:String){
+        //拼凑频道列表的歌曲数据网络地址
+        //http://douban.fm/j/mine/playlist?type=n&channel= 频道id &from=mainsite
+        let url:String = "http://douban.fm/j/mine/playlist?type=n&channel=\(channel_id)&from=mainsite"
+        eHttp.onSearch(url)
+    }
+    
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
-
+    
+    
 }
 

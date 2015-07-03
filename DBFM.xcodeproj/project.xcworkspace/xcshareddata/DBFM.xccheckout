@@ -7,14 +7,14 @@
 	<key>IDESourceControlProjectIdentifier</key>
 	<string>FB892FD1-474B-4862-8C24-1F057EBA9796</string>
 	<key>IDESourceControlProjectName</key>
-	<string>project</string>
+	<string>DBFM</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
 		<key>00A01116DCED7D8CB189DDBF06A2C57847DEBACC</key>
 		<string>github.com:noprom/DBFM.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>DBFM.xcodeproj/project.xcworkspace</string>
+	<string>DBFM.xcodeproj</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
 		<key>00A01116DCED7D8CB189DDBF06A2C57847DEBACC</key>
