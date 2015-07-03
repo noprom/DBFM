@@ -43,9 +43,18 @@
                             <imageView userInteractionEnabled="NO" alpha="0.29999999999999999" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="progressBg2" translatesAutoresizingMaskIntoConstraints="NO" id="4eY-ZH-5sR">
                                 <rect key="frame" x="0.0" y="248" width="322" height="40"/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" alpha="0.29999999999999999" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="progressBg" translatesAutoresizingMaskIntoConstraints="NO" id="5kC-dT-cvp">
-                                <rect key="frame" x="0.0" y="248" width="10" height="40"/>
-                            </imageView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="S9N-6z-ERO">
+                                <rect key="frame" x="0.0" y="248" width="320" height="40"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" alpha="0.29999999999999999" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="progressBg" translatesAutoresizingMaskIntoConstraints="NO" id="5kC-dT-cvp">
+                                        <rect key="frame" x="0.0" y="0.0" width="10" height="40"/>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="hBn-6b-OBf"/>
+                                </constraints>
+                            </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="be4-m2-YBt">
                                 <rect key="frame" x="9" y="256" width="25" height="25"/>
                                 <constraints>
@@ -133,9 +142,11 @@
                             <constraint firstAttribute="centerX" secondItem="tWl-Vr-MJb" secondAttribute="centerX" constant="69.5" id="2Ma-Qb-cXS"/>
                             <constraint firstAttribute="centerX" secondItem="3Dp-Vj-DzT" secondAttribute="centerX" constant="-2" id="2el-31-XXB"/>
                             <constraint firstItem="4eY-ZH-5sR" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="-16" id="5Ms-YO-7Jw"/>
+                            <constraint firstItem="S9N-6z-ERO" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="228" id="5cn-lx-j42"/>
                             <constraint firstAttribute="centerY" secondItem="Sai-c1-wmP" secondAttribute="centerY" constant="154" id="6Qs-mN-jYI"/>
                             <constraint firstAttribute="trailingMargin" secondItem="69V-Sl-EfO" secondAttribute="trailing" constant="-16" id="70F-hs-fIW"/>
                             <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="69V-Sl-EfO" secondAttribute="bottom" id="73X-Sm-q1Z"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="S9N-6z-ERO" secondAttribute="trailing" constant="-16" id="7lO-Za-QSu"/>
                             <constraint firstItem="fEX-sr-sXM" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="273" id="CeN-l1-8VQ"/>
                             <constraint firstItem="Us4-zZ-pjF" firstAttribute="centerY" secondItem="3Dp-Vj-DzT" secondAttribute="centerY" constant="0.5" id="FoW-dc-Gdg"/>
                             <constraint firstAttribute="centerX" secondItem="be4-m2-YBt" secondAttribute="centerX" constant="138.5" id="HVV-Jl-E6L"/>
@@ -156,8 +167,8 @@
                             <constraint firstAttribute="centerX" secondItem="vBE-eQ-Y7g" secondAttribute="centerX" constant="-142.5" id="qZe-cM-wwM"/>
                             <constraint firstItem="fEX-sr-sXM" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="-16" id="rWD-X2-174"/>
                             <constraint firstAttribute="trailingMargin" secondItem="4eY-ZH-5sR" secondAttribute="trailing" constant="-18" id="t0l-3C-axa"/>
+                            <constraint firstItem="S9N-6z-ERO" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="-16" id="vFe-tS-JLz"/>
                             <constraint firstItem="be4-m2-YBt" firstAttribute="centerY" secondItem="4eY-ZH-5sR" secondAttribute="centerY" constant="0.5" id="wjB-gQ-1fy"/>
-                            <constraint firstItem="5kC-dT-cvp" firstAttribute="centerY" secondItem="4eY-ZH-5sR" secondAttribute="centerY" id="zem-do-UlB"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
@@ -169,12 +180,14 @@
                     <connections>
                         <outlet property="bg" destination="69V-Sl-EfO" id="1oh-D8-6x0"/>
                         <outlet property="iv" destination="Sai-c1-wmP" id="TRR-8V-3hQ"/>
+                        <outlet property="progress" destination="5kC-dT-cvp" id="MbS-R7-Pbn"/>
                         <outlet property="timePlayer" destination="awj-o9-GgJ" id="vea-9o-YzA"/>
                         <outlet property="tv" destination="fEX-sr-sXM" id="kIM-yl-MNt"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="314" y="267"/>
         </scene>
         <!--Channel Controller-->
         <scene sceneID="Ebu-oA-oAi">

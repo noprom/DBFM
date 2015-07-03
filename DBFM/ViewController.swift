@@ -38,6 +38,8 @@ class ViewController: UIViewController,UITableViewDataSource,UITableViewDelegate
     
     @IBOutlet weak var timePlayer: UILabel!
     
+    @IBOutlet weak var progress: UIImageView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         iv.onRotation()
@@ -171,9 +173,17 @@ class ViewController: UIViewController,UITableViewDataSource,UITableViewDelegate
     
     // 更新方法
     func onUpdate(){
-        // 00:00 获取党建的播放时间
+        // 00:00 获取当前歌曲的播放时间
         let c = audioPlayer.currentPlaybackTime
         if c > 0.0{
+            // 歌曲的总时间
+            let t = audioPlayer.duration
+            // 计算百分比
+            let pro:CGFloat = CGFloat(c/t)
+            // 计算进度条的宽度
+            progress.frame.size.width = view.frame.size.width * pro
+            
+            
             // 格式化时间为00:00这种格式
             let all:Int = Int(c)// 总的时间
             let m:Int   = all % 60// 秒
