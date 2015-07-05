@@ -55,7 +55,7 @@
                                     <constraint firstAttribute="height" constant="40" id="hBn-6b-OBf"/>
                                 </constraints>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="be4-m2-YBt">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="be4-m2-YBt" userLabel="Replay">
                                 <rect key="frame" x="9" y="256" width="25" height="25"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="25" id="5pL-fZ-HRs"/>
@@ -65,7 +65,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tWl-Vr-MJb">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tWl-Vr-MJb" userLabel="Pre">
                                 <rect key="frame" x="78" y="256" width="25" height="25"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="25" id="fRR-dd-g04"/>
@@ -75,7 +75,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3Dp-Vj-DzT">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3Dp-Vj-DzT" userLabel="Play" customClass="EkoButton" customModule="DBFM" customModuleProvider="target">
                                 <rect key="frame" x="145" y="251" width="34" height="34"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="34" id="TMe-mt-P7n"/>
@@ -85,7 +85,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vBE-eQ-Y7g">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vBE-eQ-Y7g" userLabel="Channel">
                                 <rect key="frame" x="290" y="256" width="25" height="25"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="25" id="n0Y-4f-YZ4"/>
@@ -125,7 +125,7 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Us4-zZ-pjF">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Us4-zZ-pjF" userLabel="Next">
                                 <rect key="frame" x="215" y="256" width="25" height="25"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="25" id="voD-u3-Nvh"/>
@@ -179,6 +179,9 @@
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
                         <outlet property="bg" destination="69V-Sl-EfO" id="1oh-D8-6x0"/>
+                        <outlet property="btnNext" destination="Us4-zZ-pjF" id="Ps0-da-uIZ"/>
+                        <outlet property="btnPlay" destination="3Dp-Vj-DzT" id="ZTo-wT-sAC"/>
+                        <outlet property="btnPre" destination="tWl-Vr-MJb" id="kOO-V7-hDL"/>
                         <outlet property="iv" destination="Sai-c1-wmP" id="TRR-8V-3hQ"/>
                         <outlet property="progress" destination="5kC-dT-cvp" id="MbS-R7-Pbn"/>
                         <outlet property="timePlayer" destination="awj-o9-GgJ" id="vea-9o-YzA"/>

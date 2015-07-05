@@ -39,6 +39,15 @@ class ViewController: UIViewController,UITableViewDataSource,UITableViewDelegate
     @IBOutlet weak var timePlayer: UILabel!
     
     @IBOutlet weak var progress: UIImageView!
+    // 上一首
+    @IBOutlet weak var btnPre: UIButton!
+    // 下一首
+    @IBOutlet weak var btnNext: UIButton!
+    // 播放
+    @IBOutlet weak var btnPlay: EkoButton!
+    
+    // 当前正在播放第几首歌曲
+    var currentIndex:Int = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -62,6 +71,36 @@ class ViewController: UIViewController,UITableViewDataSource,UITableViewDelegate
         
         //让tableView背景透明
         tv.backgroundColor = UIColor.clearColor()
+        
+        // 监听按钮点击事件
+        btnPlay.addTarget(self, action: "onPlay:", forControlEvents: UIControlEvents.TouchUpInside)
+        btnPre.addTarget(self, action: "onClick:", forControlEvents: UIControlEvents.TouchUpInside)
+        btnNext.addTarget(self, action: "onClick:", forControlEvents: UIControlEvents.TouchUpInside)
+    }
+    
+    // 上一首和下一首
+    func onClick(btn:EkoButton){
+        if btn == btnNext{
+            ++currentIndex
+            if currentIndex > self.tableData.count - 1 {
+                currentIndex = 0
+            }
+        }else if btn == btnPre {
+            --currentIndex
+            if currentIndex < 0 {
+                currentIndex = self.tableData.count - 1
+            }
+        }
+        onSelectRow(currentIndex)
+    }
+    
+    // 播放音乐
+    func onPlay(btn:EkoButton){
+        if btn.isPlay{
+            audioPlayer.play()
+        }else{
+            audioPlayer.stop()
+        }
     }
     
     //设置tableview的数据行数
@@ -162,7 +201,9 @@ class ViewController: UIViewController,UITableViewDataSource,UITableViewDelegate
         self.audioPlayer.stop()
         self.audioPlayer.contentURL = NSURL(string:url)
         self.audioPlayer.play()
-        
+        //改变播放按钮的状态
+        btnPlay.onPlay()
+
         // 先停掉计时器
         timer?.invalidate()
         // 将计时器归零
