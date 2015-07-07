@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		80403E901B46B3A900005D3B /* EkoButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80403E8F1B46B3A900005D3B /* EkoButton.swift */; };
+		8099B9701B4C0F0A00E1E4A4 /* HRToast+UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8099B96F1B4C0F0A00E1E4A4 /* HRToast+UIView.swift */; };
 		80F8D9F91B453A8900197D8A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80F8D9F81B453A8900197D8A /* AppDelegate.swift */; };
 		80F8D9FB1B453A8900197D8A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80F8D9FA1B453A8900197D8A /* ViewController.swift */; };
 		80F8D9FE1B453A8900197D8A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 80F8D9FC1B453A8900197D8A /* Main.storyboard */; };
@@ -33,6 +34,7 @@
 
 /* Begin PBXFileReference section */
 		80403E8F1B46B3A900005D3B /* EkoButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EkoButton.swift; sourceTree = "<group>"; };
+		8099B96F1B4C0F0A00E1E4A4 /* HRToast+UIView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "HRToast+UIView.swift"; sourceTree = "<group>"; };
 		80F8D9F31B453A8900197D8A /* DBFM.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DBFM.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		80F8D9F71B453A8900197D8A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		80F8D9F81B453A8900197D8A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -89,6 +91,7 @@
 		80F8D9F51B453A8900197D8A /* DBFM */ = {
 			isa = PBXGroup;
 			children = (
+				8099B96F1B4C0F0A00E1E4A4 /* HRToast+UIView.swift */,
 				80F8DA1C1B45642200197D8A /* Alamofire.swift */,
 				80F8DA1D1B45642200197D8A /* SwiftyJSON.swift */,
 				80F8D9F81B453A8900197D8A /* AppDelegate.swift */,
@@ -235,6 +238,7 @@
 				80F8D9FB1B453A8900197D8A /* ViewController.swift in Sources */,
 				80F8DA211B45661C00197D8A /* HttpController.swift in Sources */,
 				80F8DA1F1B45642200197D8A /* SwiftyJSON.swift in Sources */,
+				8099B9701B4C0F0A00E1E4A4 /* HRToast+UIView.swift in Sources */,
 				80403E901B46B3A900005D3B /* EkoButton.swift in Sources */,
 				80F8D9F91B453A8900197D8A /* AppDelegate.swift in Sources */,
 				80F8DA1B1B455C6900197D8A /* ChannelController.swift in Sources */,
