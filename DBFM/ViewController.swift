@@ -182,6 +182,15 @@ class ViewController: UIViewController,UITableViewDataSource,UITableViewDelegate
         onSelectRow(indexPath.row)
     }
     
+    // 设置cell的动画效果
+    func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
+        // 设置cell的动画显示为3d缩放，xy方向的缩放效果，初始值为0.1，结束值为1
+        cell.layer.transform = CATransform3DMakeScale(0.1, 0.1, 1)
+        UIView.animateWithDuration(0.25, animations: { () -> Void in
+            cell.layer.transform = CATransform3DMakeScale(1, 1, 1)
+        })
+    }
+    
     //选中了哪一行
     func onSelectRow(index:Int){
         //构建一个indexPath
