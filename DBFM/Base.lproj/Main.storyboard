@@ -55,7 +55,7 @@
                                     <constraint firstAttribute="height" constant="40" id="hBn-6b-OBf"/>
                                 </constraints>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="be4-m2-YBt" userLabel="Replay">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="be4-m2-YBt" userLabel="Mode" customClass="OrderButton" customModule="DBFM" customModuleProvider="target">
                                 <rect key="frame" x="9" y="256" width="25" height="25"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="25" id="5pL-fZ-HRs"/>
@@ -180,6 +180,7 @@
                     <connections>
                         <outlet property="bg" destination="69V-Sl-EfO" id="1oh-D8-6x0"/>
                         <outlet property="btnNext" destination="Us4-zZ-pjF" id="Ps0-da-uIZ"/>
+                        <outlet property="btnOrder" destination="be4-m2-YBt" id="8Hf-re-Q8s"/>
                         <outlet property="btnPlay" destination="3Dp-Vj-DzT" id="ZTo-wT-sAC"/>
                         <outlet property="btnPre" destination="tWl-Vr-MJb" id="kOO-V7-hDL"/>
                         <outlet property="iv" destination="Sai-c1-wmP" id="TRR-8V-3hQ"/>

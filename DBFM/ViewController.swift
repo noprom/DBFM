@@ -49,6 +49,9 @@ class ViewController: UIViewController,UITableViewDataSource,UITableViewDelegate
     // 当前正在播放第几首歌曲
     var currentIndex:Int = 0
     
+    // 播放顺序按钮
+    @IBOutlet weak var btnOrder:OrderButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         iv.onRotation()
@@ -76,6 +79,49 @@ class ViewController: UIViewController,UITableViewDataSource,UITableViewDelegate
         btnPlay.addTarget(self, action: "onPlay:", forControlEvents: UIControlEvents.TouchUpInside)
         btnPre.addTarget(self, action: "onClick:", forControlEvents: UIControlEvents.TouchUpInside)
         btnNext.addTarget(self, action: "onClick:", forControlEvents: UIControlEvents.TouchUpInside)
+        btnOrder.addTarget(self, action: "onOrder:", forControlEvents: UIControlEvents.TouchUpInside)
+        
+        // 播放结束通知
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "playFinish", name: MPMoviePlayerPlaybackDidFinishNotification, object:audioPlayer)
+    }
+    
+    var isAutoFinish:Bool = true    // 是否自动播放结束
+    // 1.点击上一首 下一首按钮；2.选择频道列表；3.点击歌曲列表中的某一行的时候强行结束，设为false
+    func playFinish(){
+        if isAutoFinish{
+            switch(btnOrder.order){
+            case 1:
+                // 顺序播放
+                currentIndex ++
+                if (currentIndex > (tableData.count - 1)){
+                    currentIndex = 0
+                }
+                onSelectRow(currentIndex)
+            case 2:
+                // 随机播放
+                currentIndex = random() % tableData.count
+                onSelectRow(currentIndex)
+            case 3:
+                // 单曲循环
+                onSelectRow(currentIndex)
+            default:
+                onSelectRow(currentIndex)
+            }
+        }else{
+            isAutoFinish = true
+        }
+    }
+    
+    // 播放顺序
+    func onOrder(btn:OrderButton){
+        var msg:String = ""
+        switch(btn.order){
+        case 1:msg  = "顺序播放"
+        case 2:msg  = "随机播放"
+        case 3:msg  = "单曲循环"
+        default:msg = "你在逗我哟"
+        }
+        self.view.makeToast(message: msg, duration: 0.5, position: "center")
     }
     
     // 上一首和下一首
@@ -130,6 +176,7 @@ class ViewController: UIViewController,UITableViewDataSource,UITableViewDelegate
     
     //点击了哪一首歌曲
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        isAutoFinish = false
         onSelectRow(indexPath.row)
     }
     
@@ -210,6 +257,8 @@ class ViewController: UIViewController,UITableViewDataSource,UITableViewDelegate
         timePlayer.text = "00:00"
         // 启动计时器
         timer = NSTimer.scheduledTimerWithTimeInterval(0.4, target: self, selector: "onUpdate", userInfo: nil, repeats: true)
+        
+        isAutoFinish = true
     }
     
     // 更新方法
