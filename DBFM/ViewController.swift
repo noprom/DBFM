@@ -81,35 +81,36 @@ class ViewController: UIViewController,UITableViewDataSource,UITableViewDelegate
         btnNext.addTarget(self, action: "onClick:", forControlEvents: UIControlEvents.TouchUpInside)
         btnOrder.addTarget(self, action: "onOrder:", forControlEvents: UIControlEvents.TouchUpInside)
         
-        // 播放结束通知
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "playFinish", name: MPMoviePlayerPlaybackDidFinishNotification, object:audioPlayer)
+        //播放结束通知
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "playFinish", name: MPMoviePlayerPlaybackDidFinishNotification, object: audioPlayer)
     }
     
-    var isAutoFinish:Bool = true    // 是否自动播放结束
-    // 1.点击上一首 下一首按钮；2.选择频道列表；3.点击歌曲列表中的某一行的时候强行结束，设为false
+    var isAutoFinish:Bool = true
+    //人为结束的三种情况 1 点击上一首，下一首按钮  2 选择了频道列表的时候  3 点击了歌曲列表中的某一行的时候
     func playFinish(){
-        if isAutoFinish{
+        if isAutoFinish {
             switch(btnOrder.order){
             case 1:
-                // 顺序播放
-                currentIndex ++
-                if (currentIndex > (tableData.count - 1)){
-                    currentIndex = 0
+                //顺序播放
+                currentIndex++
+                if currentIndex > tableData.count - 1 {
+                    self.currentIndex = 0
                 }
                 onSelectRow(currentIndex)
             case 2:
-                // 随机播放
+                //随机播放
                 currentIndex = random() % tableData.count
                 onSelectRow(currentIndex)
             case 3:
-                // 单曲循环
+                //单曲循环
                 onSelectRow(currentIndex)
             default:
-                onSelectRow(currentIndex)
+                "default"
             }
         }else{
             isAutoFinish = true
         }
+        
     }
     
     // 播放顺序
@@ -126,6 +127,7 @@ class ViewController: UIViewController,UITableViewDataSource,UITableViewDelegate
     
     // 上一首和下一首
     func onClick(btn:EkoButton){
+        isAutoFinish = false
         if btn == btnNext{
             ++currentIndex
             if currentIndex > self.tableData.count - 1 {
@@ -228,13 +230,13 @@ class ViewController: UIViewController,UITableViewDataSource,UITableViewDelegate
     
     // 接收到数据后的回调方法
     func didReceiveResults(results:AnyObject){
-        //        println("获取到得数据：\(results)")
         let json = JSON(results)
         
         //判断是否是频道数据
         if let channels = json["channels"].array {
             self.channelData = channels
         }else if let song = json["song"].array {
+            isAutoFinish = false
             self.tableData = song
             //刷新tv的数据
             self.tv.reloadData()
